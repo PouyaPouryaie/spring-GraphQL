@@ -1,0 +1,27 @@
+# three top level root operation -> Query,Mutation, Subscription
+# change data, creating, mutating,updating, deleting -> Mutation
+# read data and keep connection open for when changes -> Subscription
+type Query{
+    allBooks: [Book]
+    findOne(id: ID): Book
+}
+
+type Book{
+    id: ID!
+    title: String
+    pages: Int
+    rating: Rating
+    author: Author
+}
+
+type Rating{
+    rating: String
+    star: String
+}
+
+type Author{
+    id:ID!
+    firstName: String
+    lastName:String
+    books: [Book]
+}
