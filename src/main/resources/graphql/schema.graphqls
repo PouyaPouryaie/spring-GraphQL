@@ -6,6 +6,8 @@ type Query {
     findOne(id: ID): Book
     findAll: [Coffee]!
     findOneCoffee(id: ID): Coffee
+    allPeople: [Person]
+    allPeoplePaged(page: Int, size: Int): [Person]
 }
 
 type Mutation {
@@ -45,4 +47,21 @@ enum Size {
     TALL,
     GRANDE,
     VENTI
+}
+
+type Person {
+    id: ID!
+    firstName: String
+    lastName: String
+    phoneNumber: String
+    email: String
+    address: Address
+}
+
+type Address {
+    id: ID!
+    address: String
+    state: String
+    city: String
+    zip: String
 }

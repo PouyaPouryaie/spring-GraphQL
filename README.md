@@ -1,5 +1,13 @@
 # spring-GraphQL
 
+This repo contains:
+- GraphQL (query - mutation)
+- Spring Data Jpa
+- Pagination
+- GraphQL test
+
+This repo show how to use graphQL with spring for represent data, also show how to test it.
+
 
 Instruction for use GraphQL
 1. define graphql as directory on resources and create schema file into this directory
@@ -47,3 +55,5 @@ Note: <br>
 
 - In order to use <b>graphical UI </b>, first enable ```spring.graphql.graphiql.enabled``` in application properties, <br>
 and then write this URL in browser: http://localhost:8080/graphiql?path=/graphql
+
+Special Thanks from [Dan Vega](https://github.com/danvega/graphql-paging) for the tutorial about GraphQL
