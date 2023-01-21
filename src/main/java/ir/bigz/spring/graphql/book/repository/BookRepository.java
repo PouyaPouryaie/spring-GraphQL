@@ -1,7 +1,7 @@
-package ir.bigz.spring.graphql.repository;
+package ir.bigz.spring.graphql.book.repository;
 
-import ir.bigz.spring.graphql.model.Book;
-import ir.bigz.spring.graphql.model.Rating;
+import ir.bigz.spring.graphql.book.model.Book;
+import ir.bigz.spring.graphql.book.model.Rating;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 

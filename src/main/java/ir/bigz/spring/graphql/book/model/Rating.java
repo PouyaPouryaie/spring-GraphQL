@@ -1,4 +1,4 @@
-package ir.bigz.spring.graphql.model;
+package ir.bigz.spring.graphql.book.model;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 

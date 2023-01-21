@@ -1,4 +1,4 @@
-package ir.bigz.spring.graphql.model;
+package ir.bigz.spring.graphql.book.model;
 
 public record Author(Integer id, String firstName, String lastName) {
 

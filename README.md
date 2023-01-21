@@ -11,7 +11,7 @@ Instruction for use GraphQL
 3. define controller method and mapped query to the method
    1. use SchemaMapping -> ```@SchemaMapping(typeName = "Query", value = "allBooks")```
    2. use QueryMapping -> ```@QueryMapping``` and set name of method as same as query that define in schema
-4. sample query in graphic UI
+4. sample query in UI
     ~~~ GraphQL
     query {
       findOne(id:2) {
@@ -28,12 +28,21 @@ Instruction for use GraphQL
       }
     }
     ~~~
-
+5. sample mutation in UI
+    ~~~ GraphQL
+    mutation {
+      create(name: "Hot coffee", size: SHORT){
+        id,
+        name,
+        size
+      }
+    }
+    ~~~
 
 Note: <br> 
 - <b> Three Top level root Operation </b> <br>
   Query -> define query <br>
-  Mutation -> change data, creating, mutating,updating, deleting <br>
+  Mutation -> change data, creating, updating, deleting <br>
   Subscription -> read data and keep connection open for when changes <br>
 
 - In order to use <b>graphical UI </b>, first enable ```spring.graphql.graphiql.enabled``` in application properties, <br>

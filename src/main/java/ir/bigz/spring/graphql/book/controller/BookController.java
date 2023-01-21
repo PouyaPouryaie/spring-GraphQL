@@ -1,7 +1,7 @@
-package ir.bigz.spring.graphql.controller;
+package ir.bigz.spring.graphql.book.controller;
 
-import ir.bigz.spring.graphql.model.Book;
-import ir.bigz.spring.graphql.repository.BookRepository;
+import ir.bigz.spring.graphql.book.model.Book;
+import ir.bigz.spring.graphql.book.repository.BookRepository;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
@@ -18,7 +18,6 @@ public class BookController {
         this.bookRepository = bookRepository;
     }
 
-//    @SchemaMapping(typeName = "Query", value = "allBooks")
     @QueryMapping
     public List<Book> allBooks(){
         return bookRepository.findAll();

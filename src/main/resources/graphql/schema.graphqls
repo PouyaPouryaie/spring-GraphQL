@@ -1,12 +1,20 @@
 # three top level root operation -> Query,Mutation, Subscription
-# change data, creating, mutating,updating, deleting -> Mutation
+# change data, creating, updating, deleting -> Mutation
 # read data and keep connection open for when changes -> Subscription
-type Query{
+type Query {
     allBooks: [Book]
     findOne(id: ID): Book
+    findAll: [Coffee]!
+    findOneCoffee(id: ID): Coffee
 }
 
-type Book{
+type Mutation {
+    create(name: String, size: Size) : Coffee
+    update(id: ID, name: String, size: Size) : Coffee
+    delete(id: ID) : Coffee
+}
+
+type Book {
     id: ID!
     title: String
     pages: Int
@@ -14,14 +22,27 @@ type Book{
     author: Author
 }
 
-type Rating{
+type Rating {
     rating: String
     star: String
 }
 
-type Author{
+type Author {
     id:ID!
     firstName: String
     lastName:String
     books: [Book]
+}
+
+type Coffee {
+    id: ID!
+    name: String
+    size: Size
+}
+
+enum Size {
+    SHORT,
+    TALL,
+    GRANDE,
+    VENTI
 }
