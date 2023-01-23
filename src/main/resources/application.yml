@@ -1,0 +1,54 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /spring-graphql-query
+
+spring:
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+  datasource:
+    generate-unique-name: false
+#    name: bigz
+    url: jdbc:h2:mem:bigz
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+---
+# GraphQL
+spring:
+  graphql:
+    path: /bigz-graphql # http://localhost:8080/spring-graphql-query/graphiql?path=/spring-graphql-query/bigz-graphql
+    schema:
+      printer:
+        enabled: true
+      locations: classpath:graphql/
+    graphiql:
+      enabled: true
+
+graphql:
+  extended-scalars: BigDecimal, Date
+
+
+# Used for test, it logs queries
+logging:
+  level:
+    org:
+      springframework:
+        orm:
+          jpa: DEBUG
+        transaction: DEBUG
+        data:
+          mongodb:
+            core:
+              ReactiveMongoTemplate: DEBUG
+              MongoTemplate: DEBUG
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
