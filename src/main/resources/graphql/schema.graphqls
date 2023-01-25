@@ -5,23 +5,23 @@
 scalar Date
 scalar BigDecimal
 
-type Query {
-    allBooks: [Book]
-    findOne(id: ID): Book
-    findAll: [Coffee]!
-    findOneCoffee(id: ID): Coffee
-    allPeople: [Person]
-    allPeoplePaged(page: Int, size: Int): [Person]
-    customers(fullName : String, phoneNumber : String, createdAt : Date ,paymentType : String) : [CustomerResponse]
-    customer(customerId : String) : CustomerResponse
-    customerTransactions(customerId : String) :  [PurchaseTransactionResponse]
-    customerTransaction(customerId : String, purchaseTransactionId : String) : PurchaseTransactionResponse
+input CoffeeInput {
+    id: ID
+    name: String
+    size: Size
 }
 
-type Mutation {
-    create(name: String, size: Size) : Coffee
-    update(id: ID, name: String, size: Size) : Coffee
-    delete(id: ID) : Coffee
+type Coffee {
+    id: ID!
+    name: String
+    size: Size
+}
+
+enum Size {
+    SHORT,
+    TALL,
+    GRANDE,
+    VENTI
 }
 
 type Book {
@@ -42,19 +42,6 @@ type Author {
     firstName: String
     lastName:String
     books: [Book]
-}
-
-type Coffee {
-    id: ID!
-    name: String
-    size: Size
-}
-
-enum Size {
-    SHORT,
-    TALL,
-    GRANDE,
-    VENTI
 }
 
 type Person {

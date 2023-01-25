@@ -16,6 +16,7 @@ Instruction for use GraphQL
    2. use ```ID``` as type for id
    3. use ```!``` to show this field have value and don't need check for null
    4. use ```[]``` to show this field has more than one data
+   5. use ```input``` to define object that want use it in many request in mutation
 3. define controller method and mapped query to the method
    1. use SchemaMapping -> ```@SchemaMapping(typeName = "Query", value = "allBooks")```
    2. use QueryMapping -> ```@QueryMapping``` and set name of method as same as query that define in schema
@@ -38,10 +39,13 @@ Instruction for use GraphQL
     ~~~
 5. sample mutation in UI
     ~~~ GraphQL
-    mutation {
-      create(name: "Hot coffee", size: SHORT){
-        id,
-        name,
+    mutation{ update(coffeeForUpdate: {
+        id: 4
+        name:"Hot Nescafe"
+        size:TALL
+      }) {
+        name
+        id
         size
       }
     }

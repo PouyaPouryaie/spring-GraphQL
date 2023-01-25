@@ -1,5 +1,6 @@
 package ir.bigz.spring.graphql.coffee;
 
+import ir.bigz.spring.graphql.customer.config.ScalarConfig;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.graphql.GraphQlTest;
@@ -9,7 +10,7 @@ import org.springframework.graphql.test.tester.GraphQlTester;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@Import({CoffeeService.class})
+@Import({CoffeeService.class, ScalarConfig.class})
 @GraphQlTest(CoffeeController.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class CoffeeControllerIntegrationTest {
@@ -125,30 +126,37 @@ class CoffeeControllerIntegrationTest {
     @Test
     @Order(5)
     void shouldUpdateExistingCoffee() {
+
         Coffee currentCoffee = coffeeService.findOne(1).get();
 
-        // language=GraphQL
+        //language=GraphQL
         String document = """
-            mutation update($id: ID, $name: String, $size: Size) {
-                update(id: $id, name: $name, size: $size) {
-                    id
-                    name
-                    size
-                }
+            mutation update ($id: ID, $name: String, $size: Size) {
+            update(coffeeForUpdate: {
+            id: $id
+            name: $name
+            size: $size
+            }) {
+                name
+                id
+                size
+              }
             }
         """;
 
+        CoffeeDto coffeeDto = new CoffeeDto(1, "UPDATED: Caffè Latte", Size.TALL);
+
         graphQlTester.document(document)
-                .variable("id", 1)
-                .variable("name","UPDATED: Caffè Latte")
-                .variable("size", Size.SHORT)
+                .variable("id", coffeeDto.id())
+                .variable("name",coffeeDto.name())
+                .variable("size", coffeeDto.size())
                 .execute()
                 .path("update")
                 .entity(Coffee.class);
 
         Coffee updatedCoffee = coffeeService.findOne(1).get();
         assertEquals("UPDATED: Caffè Latte",updatedCoffee.name());
-        assertEquals(Size.SHORT,updatedCoffee.size());
+        assertEquals(Size.TALL,updatedCoffee.size());
     }
 
     @Test

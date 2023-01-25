@@ -33,8 +33,8 @@ public class CoffeeController {
     }
 
     @MutationMapping
-    public Coffee update(@Argument Integer id, @Argument String name, @Argument Size size){
-        return coffeeService.update(id, name, size);
+    public Coffee update(@Argument CoffeeDto coffeeForUpdate){
+        return coffeeService.update(coffeeForUpdate.id(), coffeeForUpdate.name(), coffeeForUpdate.size());
     }
 
     @MutationMapping
