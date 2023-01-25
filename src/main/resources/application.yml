@@ -25,12 +25,12 @@ spring:
     schema:
       printer:
         enabled: true
-      locations: classpath:graphql/
+      locations: classpath:graphql/ # you can change location of schema file
     graphiql:
       enabled: true
 
-graphql:
-  extended-scalars: BigDecimal, Date
+#graphql:
+#  extended-scalars: BigDecimal, Date
 
 
 # Used for test, it logs queries

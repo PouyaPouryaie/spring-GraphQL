@@ -3,6 +3,7 @@
 # read data and keep connection open for when changes -> Subscription
 
 scalar Date
+scalar BigDecimal
 
 type Query {
     allBooks: [Book]
@@ -85,6 +86,6 @@ type CustomerResponse {
 type PurchaseTransactionResponse {
     id : String
     paymentType : String
-    amount : Float
+    amount : BigDecimal
     createdAt : Date
 }

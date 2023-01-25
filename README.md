@@ -47,6 +47,14 @@ Instruction for use GraphQL
     }
     ~~~
 
+## how to extend scalar
+if you want to extend scalar of graphQL, you must do this steps:
+1. add ```graphql-java-extended-scalars``` in pom file
+2. use ```scalar``` keyword in schema.graphqls file in order define new scalar -> scalar Date
+3. create config class to define ```RuntimeWiringConfigurer``` bean, in order to wire scalar data
+
+<b> customer as an extended scalar sample written by using those steps. </b>
+
 Note: <br> 
 - <b> Three Top level root Operation </b> <br>
   Query -> define query <br>
