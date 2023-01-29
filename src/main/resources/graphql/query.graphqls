@@ -5,6 +5,7 @@ type Query {
     findOneCoffee(id: ID): Coffee
     allPeople: [Person]
     allPeoplePaged(page: Int, size: Int): [Person]
+    findPeopleById(id: ID): Person
     customers(fullName : String, phoneNumber : String, createdAt : Date ,paymentType : String) : [CustomerResponse]
     customer(customerId : String) : CustomerResponse
     customerTransactions(customerId : String) :  [PurchaseTransactionResponse]

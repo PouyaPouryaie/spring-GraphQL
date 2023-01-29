@@ -2,4 +2,5 @@ type Mutation {
     create(name: String, size: Size) : Coffee
     update(coffeeForUpdate: CoffeeInput) : Coffee
     delete(id: ID) : Coffee
+    addPerson(person: PersonDto) : Person
 }

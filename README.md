@@ -51,11 +51,16 @@ Instruction for use GraphQL
     }
     ~~~
 
-## how to extend scalar
+## How to extend scalar
 if you want to extend scalar of graphQL, you must do this steps:
 1. add ```graphql-java-extended-scalars``` in pom file
 2. use ```scalar``` keyword in schema.graphqls file in order define new scalar -> scalar Date
 3. create config class to define ```RuntimeWiringConfigurer``` bean, in order to wire scalar data
+
+## How to write own handler for catch exception
+1. define your own Exception which it extends from RuntimeException like ```PersonQLException```
+2. define a handler that it extends <b> DataFetcherExceptionResolverAdapter </b> and override ```resolveToSingleError``` method like ```PersonQLExceptionHandler```
+3. also you can use your handler class for handle constraint validation
 
 <b> customer as an extended scalar sample written by using those steps. </b>
 

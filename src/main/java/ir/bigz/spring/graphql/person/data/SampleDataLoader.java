@@ -25,7 +25,7 @@ public class SampleDataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         // create 100 rows of people in the database
-        List<Person> people = IntStream.rangeClosed(1,100)
+        List<Person> people = IntStream.rangeClosed(1,10)
                 .mapToObj(i -> new Person(
                         faker.name().firstName(),
                         faker.name().lastName(),

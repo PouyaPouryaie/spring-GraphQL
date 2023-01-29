@@ -44,6 +44,22 @@ type Author {
     books: [Book]
 }
 
+
+input PersonDto {
+    firstName: String
+    lastName: String
+    phoneNumber: String
+    email: String
+    addressDto: AddressDto
+}
+
+input AddressDto {
+    address: String
+    state: String
+    city: String
+    zip: String
+}
+
 type Person {
     id: ID!
     firstName: String

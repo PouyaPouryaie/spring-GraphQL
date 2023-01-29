@@ -29,7 +29,7 @@ public record DataLoader(CustomerRepo customerRepo, PurchaseTransactionRepo purc
     }
 
     private List<CustomerEntity> generateCustomerList(Faker faker) {
-        return IntStream.range(0, 100)
+        return IntStream.range(0, 10)
                 .mapToObj(i -> CustomerEntity.builder().createdAt(
                                 LocalDate.now().minus(Period.ofDays((new Random().nextInt(365 * 10)))))
                         .fullName(faker.name().fullName())
