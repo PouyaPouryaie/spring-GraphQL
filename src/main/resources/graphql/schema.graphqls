@@ -2,7 +2,7 @@
 # change data, creating, updating, deleting -> Mutation
 # read data and keep connection open for when changes -> Subscription
 
-scalar Date
+scalar LocalDate
 scalar BigDecimal
 
 input CoffeeInput {
@@ -82,7 +82,7 @@ type CustomerResponse {
     fullName : String
     phoneNumber : String
     address : String
-    createdAt : Date
+    createdAt : LocalDate
     purchaseTransactions : [PurchaseTransactionResponse]
 }
 
@@ -90,5 +90,5 @@ type PurchaseTransactionResponse {
     id : String
     paymentType : String
     amount : BigDecimal
-    createdAt : Date
+    createdAt : LocalDate
 }

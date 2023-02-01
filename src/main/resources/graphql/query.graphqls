@@ -6,7 +6,7 @@ type Query {
     allPeople: [Person]
     allPeoplePaged(page: Int, size: Int): [Person]
     findPeopleById(id: ID): Person
-    customers(fullName : String, phoneNumber : String, createdAt : Date ,paymentType : String) : [CustomerResponse]
+    customers(fullName : String, phoneNumber : String, createdAt : LocalDate ,paymentType : String) : [CustomerResponse]
     customer(customerId : String) : CustomerResponse
     customerTransactions(customerId : String) :  [PurchaseTransactionResponse]
     customerTransaction(customerId : String, purchaseTransactionId : String) : PurchaseTransactionResponse

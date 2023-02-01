@@ -11,7 +11,6 @@ public class ScalarConfig {
     @Bean
     public RuntimeWiringConfigurer runtimeWiringConfigurer() {
         return builder -> builder
-                .scalar(ExtendedScalars.Date)
                 .scalar(ExtendedScalars.GraphQLBigDecimal);
     }
 }

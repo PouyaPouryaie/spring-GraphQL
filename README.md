@@ -54,8 +54,9 @@ Instruction for use GraphQL
 ## How to extend scalar
 if you want to extend scalar of graphQL, you must do this steps:
 1. add ```graphql-java-extended-scalars``` in pom file
-2. use ```scalar``` keyword in schema.graphqls file in order define new scalar -> scalar Date
-3. create config class to define ```RuntimeWiringConfigurer``` bean, in order to wire scalar data
+2. use ```scalar``` keyword in schema.graphqls file in order define new scalar -> scalar BigDecimal
+3. create config class to define ```RuntimeWiringConfigurer``` bean, in order to wire scalar BigDecimal
+4. Another library that is useful for date is [Tailrocks graphql java datetime](https://github.com/tailrocks/graphql-java-datetime)
 
 ## How to write own handler for catch exception
 1. define your own Exception which it extends from RuntimeException like ```PersonQLException```
