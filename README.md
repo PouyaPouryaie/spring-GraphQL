@@ -50,6 +50,20 @@ Instruction for use GraphQL
       }
     }
     ~~~
+6. Sample Mutation with array
+    ~~~ GraphQL
+    mutation BatchCreate { 
+      batchCreate(coffees: [
+        {name: "coffee One", size: SHORT},
+        {name: "coffee two", size: TALL},    
+        {name: "coffee three", size: SHORT}
+      ]){
+        id,
+        name,
+        size
+      }
+    }
+    ~~~
 
 ## How to extend scalar
 if you want to extend scalar of graphQL, you must do this steps:

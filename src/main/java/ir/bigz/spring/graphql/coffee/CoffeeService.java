@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 @Service
 public class CoffeeService {
@@ -26,6 +27,17 @@ public class CoffeeService {
         Coffee coffee = new Coffee(id.incrementAndGet(), name, size);
         coffees.add(coffee);
         return coffee;
+    }
+
+    public List<Coffee> batchCreate(List<CoffeeInput> coffeeInputs) {
+
+        return coffeeInputs.stream().map(coffeeInput -> {
+                Coffee coffee = new Coffee(id.incrementAndGet(),
+                        coffeeInput.name(),
+                        coffeeInput.size());
+                coffees.add(coffee);
+                return coffee;
+        }).collect(Collectors.toList());
     }
 
     public Coffee update(Integer id, String name, Size size) {

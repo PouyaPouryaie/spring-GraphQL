@@ -38,6 +38,11 @@ public class CoffeeController {
     }
 
     @MutationMapping
+    public List<Coffee> batchCreate(@Argument List<CoffeeInput> coffees){
+        return coffeeService.batchCreate(coffees);
+    }
+
+    @MutationMapping
     public Coffee delete(@Argument Integer id){
         return coffeeService.delete(id);
     }
